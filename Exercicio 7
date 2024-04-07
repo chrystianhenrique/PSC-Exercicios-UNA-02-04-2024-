@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        int quantidadeCidades = scanner.nextInt();
+        
+        String cidadeMaiorIndice = "";
+        int maiorIndice = Integer.MIN_VALUE;
+        String cidadeMenorIndice = "";
+        int menorIndice = Integer.MAX_VALUE;
+        int totalVeiculos = 0;
+        
+        for (int i = 1; i <= quantidadeCidades; i++) {
+            scanner.nextLine();
+            String nomeCidade = scanner.nextLine();
+            int veiculosPasseio = scanner.nextInt();
+            int acidentes = scanner.nextInt();
+            
+            if (acidentes > maiorIndice) {
+                maiorIndice = acidentes;
+                cidadeMaiorIndice = nomeCidade;
+            }
+            if (acidentes < menorIndice) {
+                menorIndice = acidentes;
+                cidadeMenorIndice = nomeCidade;
+            }
+            
+            totalVeiculos += veiculosPasseio;
+        }
+        
+        double mediaVeiculos = (double) totalVeiculos / quantidadeCidades;
+        
+        System.out.println(cidadeMaiorIndice + " " + maiorIndice);
+        System.out.println(cidadeMenorIndice + " " + menorIndice);
+        System.out.println(mediaVeiculos);
+    }
+}
