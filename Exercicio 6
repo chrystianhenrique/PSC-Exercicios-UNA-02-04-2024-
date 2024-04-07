@@ -1,0 +1,63 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int opcao;
+        
+        do {
+            System.out.println("\nMenu de opções:");
+            System.out.println("1. Imposto");
+            System.out.println("2. Novo salário");
+            System.out.println("3. Classificação");
+            System.out.println("4. Finalizar o programa");
+            System.out.println("Digite a opção desejada:");
+            opcao = scanner.nextInt();
+            
+            switch (opcao) {
+                case 1:
+                    System.out.print("Digite o salário do funcionário: ");
+                    double salarioImposto = scanner.nextDouble();
+                    double imposto = 0;
+                    if (salarioImposto < 1400.00) {
+                        imposto = salarioImposto * 0.05;
+                    } else if (salarioImposto <= 2500.00) {
+                        imposto = salarioImposto * 0.10;
+                    } else {
+                        imposto = salarioImposto * 0.15;
+                    }
+                    System.out.println("O valor do imposto é: R$ " + imposto);
+                    break;
+                case 2:
+                    System.out.print("Digite o salário do funcionário: ");
+                    double salarioNovo = scanner.nextDouble();
+                    double novoSalario = 0;
+                    if (salarioNovo < 1400.00) {
+                        novoSalario = salarioNovo + 100.00;
+                    } else if (salarioNovo <= 2500.00) {
+                        novoSalario = salarioNovo + 75.00;
+                    } else if (salarioNovo <= 5000.00) {
+                        novoSalario = salarioNovo + 50.00;
+                    } else {
+                        novoSalario = salarioNovo + 25.00;
+                    }
+                    System.out.println("O novo salário é: R$ " + novoSalario);
+                    break;
+                case 3:
+                    System.out.print("Digite o salário do funcionário: ");
+                    double salarioClassificacao = scanner.nextDouble();
+                    String classificacao = "Mal remunerado";
+                    if (salarioClassificacao > 1400.00) {
+                        classificacao = "Bem remunerado";
+                    }
+                    System.out.println("Classificação: " + classificacao);
+                    break;
+                case 4:
+                    System.out.println("Programa finalizado.");
+                    break;
+                default:
+                    System.out.println("Opção inválida. Por favor, escolha uma opção válida.");
+            }
+        } while (opcao != 4);
+    }
+}
