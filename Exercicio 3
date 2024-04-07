@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        int opcao;
+        do {
+            System.out.println("Menu de opções:");
+            System.out.println("1. Média aritmética");
+            System.out.println("2. Média ponderada");
+            System.out.println("3. Sair");
+            System.out.println("Digite a opção desejada:");
+            opcao = scanner.nextInt();
+            
+            switch (opcao) {
+                case 1:
+                    System.out.println("Digite as duas notas:");
+                    double nota1 = scanner.nextDouble();
+                    double nota2 = scanner.nextDouble();
+                    double mediaAritmetica = (nota1 + nota2) / 2;
+                    System.out.println("A média aritmética é: " + mediaAritmetica);
+                    break;
+                case 2:
+                    System.out.println("Digite as três notas:");
+                    double nota3 = scanner.nextDouble();
+                    double peso1 = scanner.nextDouble();
+                    double nota4 = scanner.nextDouble();
+                    double peso2 = scanner.nextDouble();
+                    double nota5 = scanner.nextDouble();
+                    double peso3 = scanner.nextDouble();
+                    double mediaPonderada = (nota3 * peso1 + nota4 * peso2 + nota5 * peso3) / (peso1 + peso2 + peso3);
+                    System.out.println("A média ponderada é: " + mediaPonderada);
+                    break;
+                case 3:
+                    System.out.println("Programa encerrado.");
+                    break;
+                default:
+                    System.out.println("Opção inválida. Por favor, escolha uma opção válida.");
+            }
+        } while (opcao != 3);
+    }
+}
