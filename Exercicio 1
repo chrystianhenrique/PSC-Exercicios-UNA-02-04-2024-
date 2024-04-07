@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int somaIdades = 0;
+        int contador = 0;
+        
+        System.out.println("Digite as idades (digite 0 para encerrar):");
+        int idade = scanner.nextInt();
+        
+        while (idade != 0) {
+            somaIdades += idade;
+            contador++;
+            idade = scanner.nextInt();
+        }
+        
+        if (contador == 0) {
+            System.out.println("Nenhuma idade foi digitada.");
+        } else {
+            double mediaIdades = (double) somaIdades / contador;
+            System.out.println("A média das idades digitadas é: " + mediaIdades);
+        }
+    }
+}
