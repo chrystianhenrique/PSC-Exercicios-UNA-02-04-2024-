@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int totalPessoasAssistindo = 0;
+        int[] audienciaPorCanal = new int[13]; // Índices 4, 5, 7, 12 representam os canais
+        int canal;
+        
+        System.out.println("Digite o número do canal (4, 5, 7, 12) e o número de pessoas assistindo (digite 0 para encerrar):");
+        while ((canal = scanner.nextInt()) != 0) {
+            int pessoasAssistindo = scanner.nextInt();
+            if (canal >= 4 && canal <= 12) {
+                audienciaPorCanal[canal] += pessoasAssistindo;
+                totalPessoasAssistindo += pessoasAssistindo;
+            } else {
+                System.out.println("Canal inválido. Digite novamente.");
+            }
+        }
+        
+        System.out.println("Porcentagem de audiência de cada canal:");
+        for (int i = 4; i <= 12; i++) {
+            if (audienciaPorCanal[i] > 0) {
+                double porcentagem = ((double) audienciaPorCanal[i] / totalPessoasAssistindo) * 100;
+                System.out.println("Canal " + i + ": " + String.format("%.2f", porcentagem) + "%");
+            }
+        }
+    }
+}
