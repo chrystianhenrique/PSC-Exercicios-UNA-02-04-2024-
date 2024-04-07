@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        int totalIdades = 0;
+        int pessoasComPesoSuperior90AlturaInferior150 = 0;
+        int pessoasEntre10e30AnosMais190m = 0;
+        int totalPessoas = 10;
+        
+        for (int i = 1; i <= totalPessoas; i++) {
+            System.out.println("Digite a idade, peso e altura da pessoa " + i + ":");
+            int idade = scanner.nextInt();
+            double peso = scanner.nextDouble();
+            double altura = scanner.nextDouble();
+            
+            totalIdades += idade;
+            
+            if (peso > 90 && altura < 1.50) {
+                pessoasComPesoSuperior90AlturaInferior150++;
+            }
+            
+            if (idade >= 10 && idade <= 30 && altura > 1.90) {
+                pessoasEntre10e30AnosMais190m++;
+            }
+        }
+        
+        double mediaIdades = (double) totalIdades / totalPessoas;
+        double porcentagem = ((double) pessoasEntre10e30AnosMais190m / totalPessoas) * 100;
+        
+        System.out.println("Média das idades: " + mediaIdades);
+        System.out.println("Quantidade de pessoas com peso superior a 90 kg e altura inferior a 1,50 m: " + pessoasComPesoSuperior90AlturaInferior150);
+        System.out.println("Porcentagem de pessoas com idade entre 10 e 30 anos entre as pessoas que medem mais de 1,90 m: " + porcentagem + "%");
+    }
+}
